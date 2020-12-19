@@ -61,7 +61,15 @@ public class TaxCalculator {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}	
-	
+
+	/*
+		A recursive function that calculates and returns a tax based on the given income.
+		A person's taxes are calculated based on whichever income bracket they fall under.
+		The base-case for this recursive function is when the given income parameter is less than
+		or equal to $9875. Every income that is higher than this will end up calling the function inside its
+		if-statement until it reaches this base case. Then, the result floats back to the top of
+		the call stack and eventually returns the correct tax. Hooray taxes!!
+	 */
 	public static double taxCalculator(double income) {
 		double tax = 0;
 		double incomePrep = 0;
@@ -99,9 +107,6 @@ public class TaxCalculator {
 			incomePrep = 518400;
 			taxPrep = taxCalculator(incomePrep);
 			tax =  taxPrep + (income - incomePrep)*0.37;
-		}
-		else {
-			tax = 0;
 		}
 		return tax;
 	}
